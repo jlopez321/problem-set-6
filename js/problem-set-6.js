@@ -11,7 +11,10 @@
  */
 
 function sayHello() {
-
+    var ctx = document.getElementById('canvas1').getContext('2d');
+    ctx.font = '48px sans-serif';
+    ctx.strokeText('Hello, World!', 10, 50);
+    ctx.clearRect(0, 0, canvas1.width, canvas1.height)
 }
 
 /*
@@ -38,6 +41,33 @@ function sayHello() {
  */
 
 function drawRectangle() {
+let height;
+height= prompt('Height:');
+height=Number(height);
+let width;
+width= prompt('Width:');
+width=Number(width);
+let xcord;
+xcord= prompt('X:');
+xcord=Number(xcord);
+let ycord;
+ycord= prompt('Y:');
+ycord=Number(ycord);
+if (height < 1) {
+  height = alert('Your height is too small')
+}
+if (width < 1) {
+  width = alert('Your width is too small')
+}
+if (xcord < 5) {
+  xcord = alert('Your X-coordinate is too small')
+}
+if (ycord < 5) {
+  ycord = alert('Your Y-coordinate is too small')
+}
+  const canvas2 = document.getElementById('canvas2');
+  const ctx = canvas2.getContext('2d');
+ctx.strokeRect(xcord, ycord, width, height);
 
 }
 
