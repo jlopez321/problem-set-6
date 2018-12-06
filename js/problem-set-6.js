@@ -11,10 +11,10 @@
  */
 
 function sayHello() {
-    var ctx = document.getElementById('canvas1').getContext('2d');
+    let ctx = document.getElementById('canvas1').getContext('2d');
+ctx.clearRect(0, 0, canvas1.width, canvas1.height)
     ctx.font = '48px sans-serif';
     ctx.strokeText('Hello, World!', 10, 50);
-    ctx.clearRect(0, 0, canvas1.width, canvas1.height)
 }
 
 /*
@@ -41,6 +41,9 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  const canvas2 = document.getElementById('canvas2');
+  const ctx = canvas2.getContext('2d');
+  ctx.clearRect( 0, 0, canvas2.width, canvas2.height)
 let height;
 height= prompt('Height:');
 height=Number(height);
@@ -65,10 +68,19 @@ if (xcord < 5) {
 if (ycord < 5) {
   ycord = alert('Your Y-coordinate is too small')
 }
-  const canvas2 = document.getElementById('canvas2');
-  const ctx = canvas2.getContext('2d');
+if (width > 1024) {
+  width = alert('Your rectangle is too large')
+}
+if (height > 512) {
+  width = alert('Your rectangle is too large')
+}
+if (xcord > 925) {
+  xcord = alert('Your rectangle cannot fit in the margin')
+}
+if (ycord > 410) {
+  ycord = alert('Your rectangle cannot fit in the margin')
+}
 ctx.strokeRect(xcord, ycord, width, height);
-
 }
 
 /*
@@ -97,9 +109,86 @@ ctx.strokeRect(xcord, ycord, width, height);
  */
 
 function drawColoredRectangle() {
-
+  const canvas3 = document.getElementById('canvas3');
+  const ctx = canvas3.getContext('2d');
+  ctx.clearRect( 0, 0, canvas3.width, canvas3.height)
+  let xcor;
+  xcor=Number(10)
+  let ycor;
+  ycor=Number(10)
+  let h;
+  h=Number(50)
+  let w;
+  w=Number(100)
+/*  let ans;
+  ans=prompt('Color:')
+  if (ans="red") {
+    ctx.fillStyle = 'red'
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+  if (ans="blue") {
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+  if (ans="green") {
+    ctx.fillStyle = 'green';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+  if (ans="orange") {
+    ctx.fillStyle = 'orange';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+  if (ans="purple") {
+    ctx.fillStyle = 'purple';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+  if (ans="yellow") {
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  }
+}*/
+let ans = prompt('Color:')
+let and = ans
+switch(ans){
+  case ans='red':
+    ctx.fillStyle = 'red';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='blue':
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='purple':
+    ctx.fillStyle = 'purple';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='black':
+    ctx.fillStyle = 'black';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='orange':
+    ctx.fillStyle = 'orange';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='yellow':
+    ctx.fillStyle = 'yellow';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  case ans='green':
+    ctx.fillStyle = 'green';
+    ctx.fillRect(xcor, ycor, w, h);
+    break
+  default:
+    alert(and + " is not a unsupported color.")
+    break
+  }
 }
-
 /*
  * Triangle. 5 points.
  *
