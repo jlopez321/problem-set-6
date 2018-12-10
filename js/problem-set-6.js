@@ -120,39 +120,6 @@ function drawColoredRectangle() {
   h=Number(50)
   let w;
   w=Number(100)
-/*  let ans;
-  ans=prompt('Color:')
-  if (ans="red") {
-    ctx.fillStyle = 'red'
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-  if (ans="blue") {
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-  if (ans="green") {
-    ctx.fillStyle = 'green';
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-  if (ans="orange") {
-    ctx.fillStyle = 'orange';
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-  if (ans="purple") {
-    ctx.fillStyle = 'purple';
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-  if (ans="yellow") {
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(xcor, ycor, w, h);
-    break
-  }
-}*/
 let ans = prompt('Color:')
 let and = ans
 switch(ans){
@@ -219,6 +186,18 @@ switch(ans){
  */
 
 function drawTriangle() {
+  function draw() {
+    var canvas3 = document.getElementById('canvas3');
+    if (canvas3.getContext) {
+      var ctx = canvas3.getContext('2d');
+
+      ctx.beginPath();
+      ctx.moveTo(75, 50);
+      ctx.lineTo(100, 75);
+      ctx.lineTo(100, 25);
+      ctx.fill();
+    }
+  }
 
 }
 
@@ -242,7 +221,23 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
+  function draw() {
+    var canvas = document.getElementById('canvas');
+    if (canvas.getContext) {
+       var ctx = canvas.getContext('2d');
 
+      ctx.beginPath();
+      ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+      ctx.moveTo(110, 75);
+      ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+      ctx.moveTo(65, 65);
+      ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+      ctx.moveTo(95, 65);
+      ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+      ctx.stroke();
+    }
+  }
+//1 and 250
 }
 
 /*
@@ -283,8 +278,26 @@ function drawStar() {
  */
 
 function drawStopSign() {
+  var canvas=document.getElementById("canvas");
+    var cxt=canvas.getContext("2d");
 
-}
+    var numberOfSides = 8;
+        size = 10;
+        Xcenter = 100;
+        Ycenter = 100;
+
+    cxt.beginPath();
+    cxt.moveTo (Xcenter +  size * Math.cos(0), Ycenter +  size *  Math.sin(0));
+
+    for (var i = 1; i <= numberOfSides; i += 1)
+    {
+        cxt.lineTo (Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+    }
+
+    cxt.strokeStyle = "#000000";
+    cxt.lineWidth = 1;
+    cxt.stroke();
+  }
 
 /*
  * Pyramid. 7 points.
