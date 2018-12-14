@@ -186,19 +186,18 @@ switch(ans){
  */
 
 function drawTriangle() {
-  function draw() {
-    var canvas3 = document.getElementById('canvas3');
-    if (canvas3.getContext) {
-      var ctx = canvas3.getContext('2d');
-
-      ctx.beginPath();
-      ctx.moveTo(75, 50);
-      ctx.lineTo(100, 75);
-      ctx.lineTo(100, 25);
-      ctx.fill();
-    }
-  }
-
+  const canvas4 = document.getElementById('canvas4');
+  const ctx = canvas4.getContext('2d');
+  ctx.clearRect( 0, 0, canvas4.side1, canvas4.side2)
+      let side1 = prompt("Side 1:");
+      side1=Number(side1);
+      let side2 = prompt("Side 2:")
+      side2 = Number(side2);
+      let side3 = prompt("side3:");
+      side3 = Number(side3);
+      ctx.moveTo(side1);
+    ctx.lineTo(side2);
+    ctx.lineTo(side3);
 }
 
 /*
@@ -221,24 +220,37 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
-  function draw() {
-    var canvas = document.getElementById('canvas');
-    if (canvas.getContext) {
-       var ctx = canvas.getContext('2d');
+    var ctx = document.getElementById("canvas5");
+     var draw = ctx.getContext("2d");
 
-      ctx.beginPath();
-      ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-      ctx.moveTo(110, 75);
-      ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-      ctx.moveTo(65, 65);
-      ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-      ctx.moveTo(95, 65);
-      ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
-      ctx.stroke();
-    }
-  }
-//1 and 250
+     let radius = prompt('Enter a radius:');
+     radius = Number(radius);
+     draw.beginPath();
+     draw.arc(100, 100, radius, 0, Math.PI * 2, true);
+     draw.closePath();
+     draw.stroke();
+     var c = document.getElementById("mycanvas");
+   var eye = ctx.getContext("2d");
+   eye.moveTo(55, 50);
+   eye.beginPath();
+   eye.stroke();
+   eye.arc(75, 50, 4, 0, Math.PI * 2, true);
+   eye.closePath();
+   eye.stroke();
+   eye.moveTo(103, 49);
+   eye.beginPath();
+ eye.stroke();
+   eye.arc(100, 50, 4, 0, Math.PI * 2, true);
+   eye.closePath();
+   eye.stroke();
+   var c = document.getElementById("mycanvas");
+   var smile = ctx.getContext("2d");
+   smile.moveTo(105, 75);
+   smile.beginPath();
+   smile.arc(75, 75, 30, 0, Math.PI, false);
+   smile.stroke();
 }
+//1 and 250
 
 /*
  * Star. 9 points.
